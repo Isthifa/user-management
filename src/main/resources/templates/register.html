@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>user management</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Welcome</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/api/register}">register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/api/login}">login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="container p-4 text-center fs-5">Register Page
+  <div th:if="${msg}">
+    <p th:text="${msg}" class="text-success"></p>
+    <p th:remove="all" th:attr="msg=''"></p>
+  </div>
+  </div>
+
+  <form class="col-md-4 offset-md-4" th:action="@{/api/save}"  method="POST">
+    <div class="mb-3">
+      <label class="form-label">Full Name</label>
+      <input type="text" class="form-control"  name="fullname">
+      <div id="namehelp" class="form-text">Enter your full name.</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" name="address">
+      <div id="Addresshelp" class="form-text">Enter your Address.</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" name="email">
+      <div id="emailhelp" class="form-text">Enter your email.</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Qualification</label>
+      <input type="text" class="form-control"  name="qualification">
+      <div id="qaulification" class="form-text">Enter your Qualification.</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">password</label>
+      <input type="password" class="form-control" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script th:inline="javascript">
+  /* Remove session message */
+  if ([[${session.msg}]]) {
+    setTimeout(function() {
+      [[${#session.removeAttribute('sessionMsg')}]]
+    }, 5000);
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
