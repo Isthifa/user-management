@@ -16,33 +16,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="@{/api/index}">Home</a>
+          <a class="nav-link active" aria-current="page" th:href="@{/api/index}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="@{/api/register">register</a>
+          <a class="nav-link" th:href="@{/api/register">register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="@{/api/login}">login</a>
+          <a class="nav-link" th:href="@{/api/login}">login</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="container">
-  <div th:if="${param.error}" class="alert alert-danger">
-  Invalid username & Password</div>
-<div th:if="${param.logout}" class="alert alert-success">
-  Logout Sucessfully</div>
-  <form class="col-md-4 offset-md-4" th:action="@{/api/login}"  method="POST">
-
+  <form class="col-md-4 offset-md-4" th:action="@{/api/lsave}"  method="POST">
+    <div class="container p-4 text-center fs-5">login failed</div>
     <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="text" class="form-control" name="email">
-      <div id="emailhelp" class="form-text">Enter your email.</div>
+      <label class="form-label">Enter Email</label>
+      <input type="text" class="form-control"  name="email">
+      <div id="namehelp" class="form-text">Enter your full name.</div>
     </div>
     <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
+      <label class="form-label">password</label>
+      <input type="password" class="form-control" name="password">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

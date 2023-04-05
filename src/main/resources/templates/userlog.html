@@ -16,24 +16,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/api/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">register</a>
+                    <a class="nav-link" th:href="@{/api/register}">register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">login</a>
+                    <a class="nav-link" th:href="@{/api/login}">login</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<h1>User After Login: Home Page</h1>
-<a href="/logout">Logout</a>
-<h1>Name : [[${registerD.fullname}]]</h1>
-<h1>Email : [[${registerD.email}]]</h1>
-<h1>Qualification : [[${registerD.qualification}]]</h1>
-
+<div class="container my-5 p-5" style="height:250px;width:554px;border: 5px solid black;">
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Login Successful </h1>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
